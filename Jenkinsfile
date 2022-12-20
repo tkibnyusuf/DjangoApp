@@ -6,9 +6,13 @@ pipeline {
         AWS_DEFAULT_REGION="us-east-1"
         IMAGE_REPO_NAME="jenkins-pipeline"
         IMAGE_TAG= "${env.BUILD_ID}"
-        REPOSITORY_URI = "775012328020.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline"        
-              
-         stage('Logging into AWS ECR') {
+        REPOSITORY_URI = "775012328020.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline"  
+        
+        
+        
+       stages {
+           
+           stage('Logging into AWS ECR') {
                      environment {
                         AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
                         AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
